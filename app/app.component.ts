@@ -9,7 +9,7 @@ interface Hero {
     selector: 'my-app',
     templateUrl: 'app/app.component.tmpl.html',
     styles: [`
-        .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+        .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 20em;}
         .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
         .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
         .heroes .badge {
@@ -27,12 +27,15 @@ interface Hero {
 })
 
 export class AppComponent {
-    public title = 'Tour of Heroes';    
+    public title = 'Tour of Heroes';
+     public hero: Hero = {
+        id: 1,
+        name: 'Kardel Sharpeye'
+    }      
     public heroes = HEROES;
 }
 
-var HEROES: Hero[] = [
-    { "id": 1, "name": 'KARDEL SHARPEYE'},            
+var HEROES: Hero[] = [   
     { "id": 11, "name": "TRAXEX" },
     { "id": 12, "name": "FAERIE DRAGON" },
     { "id": 13, "name": "RAIGOR STONEHOOF" },
