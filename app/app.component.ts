@@ -28,14 +28,18 @@ interface Hero {
 
 export class AppComponent {
     public title = 'Tour of Heroes';
-     public hero: Hero = {
-        id: 1,
-        name: 'Kardel Sharpeye'
-    }      
+    public selectedHero: Hero;
+    // public hero: Hero = {
+    //     id: 1,
+    //     name: 'Kardel Sharpeye'
+    // }      
     public heroes = HEROES;
+    
+    onSelect(hero: Hero) { this.selectedHero = hero; }
 }
 
-var HEROES: Hero[] = [   
+var HEROES: Hero[] = [
+    { "id": 10, "name": "KARDEL SHARPEYE" },   
     { "id": 11, "name": "TRAXEX" },
     { "id": 12, "name": "FAERIE DRAGON" },
     { "id": 13, "name": "RAIGOR STONEHOOF" },
