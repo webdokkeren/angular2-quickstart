@@ -28,11 +28,7 @@ interface Hero {
 
 export class AppComponent {
     public title = 'Tour of Heroes';
-    public selectedHero: Hero;
-    // public hero: Hero = {
-    //     id: 1,
-    //     name: 'Kardel Sharpeye'
-    // }      
+    public selectedHero: Hero;          
     public heroes = HEROES;
     
     onSelect(hero: Hero) { this.selectedHero = hero; }
