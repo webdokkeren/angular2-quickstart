@@ -1,3 +1,7 @@
 node_modules/*
 app/app.component.js.map
 app/app.component.js
+app/hero-detail.component.js
+app/hero-detail.component.js.map
+app/hero.js
+app/hero.js.map

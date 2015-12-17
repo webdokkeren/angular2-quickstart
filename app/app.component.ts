@@ -1,9 +1,6 @@
 import {Component} from 'angular2/core';
-
-interface Hero {
-    id: number;
-    name: string;
-}
+import {Hero} from './hero';
+import {HeroDetailComponent} from './hero-detail.component';
 
 @Component({
     selector: 'my-app',
@@ -23,7 +20,8 @@ interface Hero {
             top: -1px;
         }
         .selected { background-color: #EEE; color: #369; }
-    `]
+    `],
+    directives: [HeroDetailComponent] 
 })
 
 export class AppComponent {
