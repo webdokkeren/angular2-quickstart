@@ -1,6 +1,9 @@
 import {Component} from 'angular2/core';
+import {OnInit} from 'angular2/core';
+
 import {Hero} from './hero';
 import {HeroDetailComponent} from './hero-detail.component';
+import {HeroService} from './hero.service';
 
 @Component({
     selector: 'my-app',
@@ -21,27 +24,25 @@ import {HeroDetailComponent} from './hero-detail.component';
         }
         .selected { background-color: #EEE; color: #369; }
     `],
-    directives: [HeroDetailComponent] 
+    directives: [HeroDetailComponent],
+    providers: [HeroService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+    constructor(private _heroService: HeroService){}
+
+    ngOnInit(){
+        this.getHeroes();
+    }
+
     public title = 'Tour of Heroes';
-    public selectedHero: Hero;          
-    public heroes = HEROES;
-    
+    public selectedHero: Hero;
+    public heroes: Hero[];
+
+    getHeroes() {
+        this._heroService
+            .getHeroes()
+            .then(heroes => this.heroes = heroes );
+    }
     onSelect(hero: Hero) { this.selectedHero = hero; }
 }
-
-var HEROES: Hero[] = [
-    { "id": 10, "name": "KARDEL SHARPEYE" },   
-    { "id": 11, "name": "TRAXEX" },
-    { "id": 12, "name": "FAERIE DRAGON" },
-    { "id": 13, "name": "RAIGOR STONEHOOF" },
-    { "id": 14, "name": "DARCHROW" },
-    { "id": 15, "name": "KARROCH" },
-    { "id": 16, "name": "ZHARVAKKO" },
-    { "id": 17, "name": "PRINCESS OF THE MOON" },
-    { "id": 18, "name": "LESALE DEATHBRINGER" },
-    { "id": 19, "name": "LYRALEI" },
-    { "id": 20, "name": "RHASTA" }
-];
